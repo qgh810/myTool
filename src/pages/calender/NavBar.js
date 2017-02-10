@@ -38,7 +38,6 @@ export default class Month extends Component {
           <Icon name="ios-arrow-round-forward" style={[styles.icon, styles.iconRight]}/>
         </TouchableOpacity>
 
-        <StatusBar hidden={false} />
       </View>
     );
   }

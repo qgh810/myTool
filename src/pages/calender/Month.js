@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Button,
-  StatusBar,
   Dimensions,
   TouchableOpacity,
 } from 'react-native'
@@ -54,7 +53,6 @@ export default class Month extends Component {
           <Icon name="ios-arrow-round-forward" style={[styles.icon, styles.iconRight]}/>
         </TouchableOpacity>
 
-        <StatusBar hidden={true} />
       </View>
     );
   }
