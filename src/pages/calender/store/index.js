@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, computed } from 'mobx'
 import { getPrevMonth, getNextMonth, getMonthDays, getGroupDays } from '../../../utils/date'
 
 const date = new Date()
@@ -44,6 +44,5 @@ calenderStore.onNextMonth = function () {
   calenderStore.year = year - 0
   calenderStore.month = month - 0
 }
-
 
 export default calenderStore
