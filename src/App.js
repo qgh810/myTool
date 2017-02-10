@@ -3,18 +3,25 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  Dimensions,
+  Image,
 } from 'react-native';
+import Footer from './components/Footer'
 
 import Calender from './pages/calender/Index.js'
+import navStore from './mobx/navStore'
+var {height, width} = Dimensions.get('window')
 
 const INITIAL_ROUTE = {
-  title: '首页',
+  title: 'Calender',
+  navName: 'Calender',
   component: Calender
 }
 
 export default class App extends Component {
   renderScene = (route, navigator) => {
+    navStore.setNav(route.navName)
     const Comp = route.component
     return (
       <Comp navigator={navigator} route={route} />
@@ -24,10 +31,16 @@ export default class App extends Component {
   render() {
     return (
       <View style={[styles.root]}>
-        <Navigator
-          initialRoute={INITIAL_ROUTE}
-          renderScene={this.renderScene}
-        />
+        <Image
+          style={styles.image}
+          source={require('./assets/images/background.jpg')}
+        >
+          <Navigator
+            initialRoute={INITIAL_ROUTE}
+            renderScene={this.renderScene}
+          />
+          <Footer />
+        </Image>
       </View>
     );
   }
@@ -35,6 +48,12 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-  }
+    width: width,
+    height: height,
+  },
+
+  image: {
+    width: width,
+    height: height,
+  },
 });

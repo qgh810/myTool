@@ -11,7 +11,7 @@ import {
 import Year from './Year'
 import Month from './Month'
 import Day from './Day'
-
+import NavBar from './NavBar'
 var {height, width} = Dimensions.get('window')
 
 export default class Index extends Component {
@@ -22,15 +22,9 @@ export default class Index extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Image
-          style={styles.image}
-          source={require('../../assets/images/background.jpg')}
-        >
-          <Year />
-          <Month />
-          <Day />
-          <Month />
-        </Image>
+        <Year />
+        <Month />
+        <Day />
       </View>
     );
   }
@@ -41,10 +35,7 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  image: {
-    width: width,
-    height: height,
-  },
+
   text: {
     fontSize: 20,
     textAlign: 'center',

@@ -5,28 +5,45 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
+import { observer } from 'mobx-react/native'
 
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/Ionicons'
+import navStore from '../mobx/navStore'
 
+@observer
 export default class Footer extends Component {
-
-  goBack = () => {
-    const { navigator } = this.props
-    navigator.pop()
-    // todo
-  }
-
   render() {
     return (
       <View style={styles.root}>
-        <TouchableOpacity onPress={this.goBack}>
-          <Icon name="rocket" style={styles.back} />
+        <TouchableOpacity
+          style={styles.btn}>
+          <Icon
+            name="ios-apps-outline"
+            style={[styles.icon, {opacity: navStore.selectedNav === 'Calender' ? 1 : 0.7}]} />
+          <Text
+            style={[styles.text, {opacity: navStore.selectedNav === 'Calender' ? 1 : 0.7}]}>
+            Calender
+          </Text>
         </TouchableOpacity>
-        <Text style={styles.text}>
-          Footer
-        </Text>
-        <TouchableOpacity>
-          <Icon name="rocket" style={styles.right} />
+        <TouchableOpacity
+          style={styles.btn}>
+          <Icon
+            name="ios-list-box-outline"
+            style={[styles.icon, {opacity: navStore.selectedNav === 'Diarys' ? 1 : 0.7}]} />
+          <Text
+            style={[styles.text, {opacity: navStore.selectedNav === 'Diarys' ? 1 : 0.7}]}>
+            Diarys
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.btn}>
+          <Icon
+            name="ios-options-outline"
+            style={[styles.icon, {opacity: navStore.selectedNav === 'Setting' ? 1 : 0.7}]} />
+          <Text
+            style={[styles.text, {opacity: navStore.selectedNav === 'Setting' ? 1 : 0.7}]}>
+            Setting
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -35,27 +52,29 @@ export default class Footer extends Component {
 
 const styles = StyleSheet.create({
   root: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: 50,
-    // backgroundColor: '#f5f5f5',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#f5f5f5'
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    height: 80,
+    // backgroundColor: 'rgba(130,116,125,0.4)',
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    zIndex: 2,
+    // borderTopWidth: StyleSheet.hairlineWidth,
+    // borderTopColor: 'rgba()'
+  },
+
+  btn: {
+  },
+  icon: {
+    fontSize: 35,
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '100',
+    marginBottom: 3,
   },
   text: {
-    fontSize: 18,
-  },
-  back: {
-    fontSize: 20,
-    color: '#900',
-  },
-  right: {
-    fontSize: 20,
-    // color: '#900',
-    color: 'transparent',
+    fontSize: 15,
+    color: '#fff',
+    fontWeight: '100',
   }
 });

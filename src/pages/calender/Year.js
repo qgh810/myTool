@@ -54,7 +54,6 @@ export default class Year extends Component {
           />
         </View>
 
-        <StatusBar hidden={true} />
       </View>
     );
   }
