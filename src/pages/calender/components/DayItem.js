@@ -21,7 +21,7 @@ export default class Year extends Component {
 
   render() {
     return (
-      <View style={[styles.root, {opacity: this.props.opacity ? 0.2 : 1}]}>
+      <View style={[styles.root, {opacity: this.props.disabled ? 0.2 : 1}]}>
         <TouchableOpacity style={[styles.textBox, this.props.selected && styles.selected]}>
           <Text style={styles.text}>{this.props.day}</Text>
         </TouchableOpacity>
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
   },
 
   textBox: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     // borderWidth: StyleSheet.hairlineWidth,
     borderWidth: 1,
     borderColor: 'transparent',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    lineHeight: 40,
+    lineHeight: 50,
     textAlign: 'center',
     color: '#fff',
     fontSize: 28,

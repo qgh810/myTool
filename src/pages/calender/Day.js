@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Button,
-  StatusBar,
   Dimensions,
 } from 'react-native'
 import { observer } from 'mobx-react/native'
@@ -40,7 +39,7 @@ export default class Day extends Component {
                           key={(groupIndex + '-' + dayIndex)}
                           day={day.value}
                           selected={day.type === 0 && calenderStore.isThisMonth && day.value === new Date().getDate()}
-                          opacity={!(day.type === 0)}
+                          disabled={!(day.type === 0)}
                         />
                       )
                     })
