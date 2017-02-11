@@ -20,6 +20,7 @@ var {height, width} = Dimensions.get('window')
 export default class Day extends Component {
   constructor (props) {
     super(props)
+    console.log(props)
   }
 
   render() {

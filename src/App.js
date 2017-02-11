@@ -6,8 +6,10 @@ import {
   Navigator,
   Dimensions,
   Image,
+  StatusBar,
 } from 'react-native';
 
+import IosStatusBar from './components/IosStatusBar'
 import Footer from './components/Footer'
 import Page from './pages/Index'
 var {height, width} = Dimensions.get('window')
@@ -23,10 +25,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={[styles.root]}>
+        <IosStatusBar/>
         <Image
           style={styles.image}
           source={require('./assets/images/background.jpg')}
         >
+
           <Page/>
           <Footer />
         </Image>

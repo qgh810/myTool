@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from 'react-native'
 
+import navStore from '../../mobx/navStore'
 import Year from './Year'
 import Month from './Month'
 import Day from './Day'
@@ -19,12 +20,17 @@ export default class Index extends Component {
     super(props)
   }
 
+  componentDidMount () {
+    // 设置状态栏字体颜色 只支持白色和黑色
+    navStore.statusBarColor = 'black'
+  }
+
   render() {
     return (
       <View style={styles.root}>
         <Year />
         <Month />
-        <Day />
+        <Day {...this.props} />
       </View>
     );
   }

@@ -6,12 +6,12 @@ import {
   Button,
   Image,
   Dimensions,
+  ScrollView,
 } from 'react-native'
+import { BlurView, VibrancyView } from 'react-native-blur'
 
-import Year from './Year'
-import Month from './Month'
-import Day from './Day'
-import NavBar from './NavBar'
+import navStore from '../../mobx/navStore'
+import Top from './Top'
 var {height, width} = Dimensions.get('window')
 
 export default class Index extends Component {
@@ -19,13 +19,27 @@ export default class Index extends Component {
     super(props)
   }
 
+  componentDidMount () {
+    navStore.statusBarColor = 'white'
+  }
+
   render() {
     return (
       <View style={styles.root}>
-        <Text>日记</Text>
-        {/* <Year /> */}
-        {/* <Month />
-        <Day /> */}
+        {/* <BlurView
+          blurType="mark"
+          blurAmount={2}
+          style={styles.blur}
+          >
+            <Text>123123123123123123123123</Text>
+            <View style={styles.mask}></View>
+        </BlurView> */}
+        <ScrollView
+            style={styles.scrollView}
+          >
+            <Top/>
+            <Text>日记日记日记日记日记日记日记日记日记</Text>
+        </ScrollView>
       </View>
     );
   }
@@ -35,6 +49,12 @@ export default class Index extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: '#fff'
+  },
+
+  scrollView: {
+    // width,
+    // height,
   },
 
   text: {

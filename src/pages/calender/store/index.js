@@ -7,16 +7,10 @@ const thisMonth = date.getMonth() + 1
 const thisWeek = date.getDay()
 const thisDay = date.getDate()
 
-const DAY_TEMPLATE = {
-  date: 1,
-  today: false,
-  thisMonth: true,
-}
-
 const calenderStore = observable({
-  year: '2017',
-  month: '2',
-  day: '10',
+  year: thisYear,
+  month: thisMonth,
+  day: thisDay,
   get isThisYear () {
     return new Date().getFullYear() === (this.year - 0)
   },
@@ -34,15 +28,25 @@ const calenderStore = observable({
   }
 })
 
+// 切换到上个月
 calenderStore.onPrevMonth = function () {
   let { year, month } = getPrevMonth(calenderStore.year, calenderStore.month)
   calenderStore.year = year - 0
   calenderStore.month = month - 0
 }
+
+// 切换到下个月
 calenderStore.onNextMonth = function () {
   let { year, month } = getNextMonth(calenderStore.year, calenderStore.month)
   calenderStore.year = year - 0
   calenderStore.month = month - 0
+}
+
+// 回到今天
+calenderStore.today = function () {
+  calenderStore.year = thisYear
+  calenderStore.month = thisMonth
+  calenderStore.day = thisDay
 }
 
 export default calenderStore

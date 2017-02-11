@@ -9,11 +9,14 @@ import { observer } from 'mobx-react/native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 import navStore from '../mobx/navStore'
+import calenderStore from '../pages/calender/store'
 
 @observer
 export default class Footer extends Component {
 
   onPress = (name) => {
+    // 如果当前是日历 则点击日历导航会定位到今天
+    if (name === 'Calender' && navStore.selectedNav === 'Calender') return calenderStore.today()
     navStore.setNav(name)
   }
 
