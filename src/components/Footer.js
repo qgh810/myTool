@@ -12,11 +12,17 @@ import navStore from '../mobx/navStore'
 
 @observer
 export default class Footer extends Component {
+
+  onPress = (name) => {
+    navStore.setNav(name)
+  }
+
   render() {
     return (
       <View style={styles.root}>
         <TouchableOpacity
-          style={styles.btn}>
+          style={styles.btn}
+          onPress={() => { this.onPress('Calender') }}>
           <Icon
             name="ios-apps-outline"
             style={[styles.icon, {opacity: navStore.selectedNav === 'Calender' ? 1 : 0.7}]} />
@@ -26,7 +32,8 @@ export default class Footer extends Component {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.btn}>
+          style={styles.btn}
+          onPress={() => { this.onPress('Diarys') }}>
           <Icon
             name="ios-list-box-outline"
             style={[styles.icon, {opacity: navStore.selectedNav === 'Diarys' ? 1 : 0.7}]} />
