@@ -38,7 +38,7 @@ export default class Footer extends Component {
           style={styles.btn}
           onPress={() => { this.onPress('Diarys') }}>
           <Icon
-            name="ios-list-box-outline"
+            name={navStore.selectedNav === 'Diarys' ? 'md-add' :  'ios-list-box-outline'}
             style={[styles.icon, {opacity: navStore.selectedNav === 'Diarys' ? 1 : 0.7}]} />
           <Text
             style={[styles.text, {opacity: navStore.selectedNav === 'Diarys' ? 1 : 0.7}]}>

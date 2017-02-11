@@ -25,8 +25,7 @@ export default class Index extends Component {
         <Image
           style={styles.backgroundImage}
           source={require('../../assets/images/background-diary.png')}>
-          <View style={styles.mask}/>
-
+            <View style={styles.mask}/>
           </Image>
           <Image
             style={styles.headerImage}
@@ -43,15 +42,16 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 290,
     // backgroundColor: 'rgba(0,0,0,0.2)',
-    shadowColor: '#fff',
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    shadowOffset: {width: 0, height: 5},
+
   },
 
   backgroundImage: {
     width,
     height: 200,
+    shadowColor: '#000',
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    shadowOffset: {width: 0, height: 5},
     // width,
     // height,
   },
@@ -68,7 +68,10 @@ const styles = StyleSheet.create({
     borderRadius: 150,
     borderWidth: 5,
     borderColor: '#fff',
-    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    shadowOffset: {width: 0, height: 5},
   },
 
   text: {
