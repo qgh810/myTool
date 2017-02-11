@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
   },
 
   time: {
-    color: '#aaa'
+    fontSize: 12,
+    color: '#ccc'
   },
 });

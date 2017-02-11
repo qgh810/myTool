@@ -49,15 +49,13 @@ const styles = StyleSheet.create({
     width,
     height: 200,
     shadowColor: '#000',
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-    shadowOffset: {width: 0, height: 5},
-    // width,
-    // height,
+    // shadowOpacity: 0.8,
+    // shadowRadius: 3,
+    // shadowOffset: {width: 0, height: 5},
   },
   mask: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(222,124,176,0.3)',
   },
   headerImage: {
     position: 'absolute',
@@ -68,10 +66,6 @@ const styles = StyleSheet.create({
     borderRadius: 150,
     borderWidth: 5,
     borderColor: '#fff',
-    shadowColor: '#000',
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-    shadowOffset: {width: 0, height: 5},
   },
 
   text: {
