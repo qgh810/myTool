@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   selected: {
-    borderColor: '#fd8d99',
+    borderColor: '#fff',
     backgroundColor: 'rgba(0,0,0,0.1)',
   },
 
