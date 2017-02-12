@@ -27,14 +27,6 @@ export default class Index extends Component {
   render() {
     return (
       <View style={styles.root}>
-        {/* <BlurView
-          blurType="mark"
-          blurAmount={2}
-          style={styles.blur}
-          >
-            <Text>123123123123123123123123</Text>
-            <View style={styles.mask}></View>
-        </BlurView> */}
         <ScrollView
             style={styles.scrollView}
           >
