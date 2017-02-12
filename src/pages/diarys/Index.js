@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  Navigator,
 } from 'react-native'
 import { BlurView, VibrancyView } from 'react-native-blur'
 
@@ -15,7 +16,7 @@ import Top from './Top'
 import DiaryList from './DiaryList'
 var {height, width} = Dimensions.get('window')
 
-export default class Index extends Component {
+class Scene extends Component {
   constructor (props) {
     super(props)
   }
@@ -28,12 +29,31 @@ export default class Index extends Component {
     return (
       <View style={styles.root}>
         <ScrollView
-            style={styles.scrollView}
-          >
+          style={styles.scrollView}
+        >
             <Top/>
             <DiaryList/>
         </ScrollView>
       </View>
+    );
+  }
+}
+
+export default class Index extends Component {
+
+  renderScene = (route, navigator) => {
+    let Comp = route.component
+    return (
+      <Comp route={route} navigator={navigator}/>
+    )
+  }
+
+  render() {
+    return (
+      <Navigator
+        initialRoute={{component: Scene}}
+        renderScene={this.renderScene}
+      />
     );
   }
 }

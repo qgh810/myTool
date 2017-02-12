@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native'
 import { BlurView, VibrancyView } from 'react-native-blur'
 
@@ -30,6 +31,10 @@ export default class Index extends Component {
     }
   }
 
+  onPress = () => {
+    this.props.onPress && this.props.onPress()
+  }
+
   componentDidMount () {
     navStore.statusBarColor = 'white'
   }
@@ -46,14 +51,18 @@ export default class Index extends Component {
           </View>
           <View style={styles.icon}/>
         </View>
-        <View style={styles.contentBox}>
-          <Triangle size={20} color={contentColor} borderColor="#fff" direction="left" style={styles.triangle}/>
-          <View style={styles.contentTextBox}>
-            <Text numberOfLines={6} style={styles.contentText}>
-              {this.props.content}
-            </Text>
+        <TouchableOpacity
+          onPress={this.onPress}
+          activeOpacity={0.7}>
+          <View onPress={this.onPress} style={styles.contentBox}>
+            <Triangle size={20} color={contentColor} borderColor="#fff" direction="left" style={styles.triangle}/>
+            <View style={styles.contentTextBox}>
+              <Text numberOfLines={6} style={styles.contentText}>
+                {this.props.content}
+              </Text>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.timeBox}>
           <Text style={styles.time}>{time}</Text>
         </View>

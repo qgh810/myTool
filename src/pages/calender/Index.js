@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   Dimensions,
+  Navigator,
 } from 'react-native'
 
 import navStore from '../../mobx/navStore'
@@ -15,7 +16,7 @@ import Day from './Day'
 import NavBar from './NavBar'
 var {height, width} = Dimensions.get('window')
 
-export default class Index extends Component {
+class Scene extends Component {
   constructor (props) {
     super(props)
   }
@@ -32,6 +33,25 @@ export default class Index extends Component {
         <Month />
         <Day {...this.props} />
       </View>
+    );
+  }
+}
+
+export default class Index extends Component {
+
+  renderScene = (route, navigator) => {
+    let Comp = route.component
+    return (
+      <Comp route={route} navigator={navigator}/>
+    )
+  }
+
+  render() {
+    return (
+      <Navigator
+        initialRoute={{component: Scene}}
+        renderScene={this.renderScene}
+      />
     );
   }
 }

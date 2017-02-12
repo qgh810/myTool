@@ -15,12 +15,6 @@ import Page from './pages/Index'
 var {height, width} = Dimensions.get('window')
 
 export default class App extends Component {
-  renderScene = (route, navigator) => {
-    const Comp = route.component
-    return (
-      <Comp navigator={navigator} route={route} />
-    )
-  }
 
   render() {
     return (
