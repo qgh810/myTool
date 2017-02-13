@@ -13,11 +13,37 @@ import calenderStore from '../pages/calender/store'
 
 @observer
 export default class Footer extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      selectedSetting: navStore.settingIsOpen
+    }
+  }
 
   onPress = (name) => {
     // 如果当前是日历 则点击日历导航会定位到今天
     if (name === 'Calender' && navStore.selectedNav === 'Calender') return calenderStore.today()
+    if (name === 'Diarys' && navStore.selectedNav === 'Diarys') return this.addDiart()
+    // if (name === 'Setting') {
+    //   if (navStore.selectedNav === 'Diarys') {
+    //     return navStore.closeSetting()
+    //   } else {
+    //     navStore.openSetting()
+    //   }
+    // }
     navStore.setNav(name)
+  }
+
+  addDiart = () => {
+    console.log('这里需要跳转到新建日志页面')
+  }
+
+  onSetting = () => {
+    if (navStore.settingIsOpen) {
+      navStore.closeSetting()
+    } else {
+      navStore.openSetting()
+    }
   }
 
   render() {
@@ -46,12 +72,13 @@ export default class Footer extends Component {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.btn}>
+          style={styles.btn}
+          onPress={this.onSetting}>
           <Icon
             name="ios-options-outline"
-            style={[styles.icon, {opacity: navStore.selectedNav === 'Setting' ? 1 : 0.7}]} />
+            style={[styles.icon, {opacity: navStore.settingIsOpen ? 1 : 0.7}]} />
           <Text
-            style={[styles.text, {opacity: navStore.selectedNav === 'Setting' ? 1 : 0.7}]}>
+            style={[styles.text, {opacity: navStore.settingIsOpen ? 1 : 0.7}]}>
             Setting
           </Text>
         </TouchableOpacity>

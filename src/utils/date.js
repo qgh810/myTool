@@ -50,7 +50,7 @@ export const numberToString = function (number, length) {
 // 获取某月所有日期 默认返回42个
 export const getMonthDays = function (year, month, allDays = 42) {
   let firstDateWeek = new Date(`${year}/${month}/1`).getDay()
-  let { prevYear, prevMonth} = getPrevMonth(year, month)
+  let { year: prevYear, month: prevMonth} = getPrevMonth(year, month)
   let prevMonthDay = monthmaxday(prevYear, prevMonth)
   let result = []
   for (let i = 0; i < firstDateWeek; i++) {

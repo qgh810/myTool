@@ -29,18 +29,25 @@ const calenderStore = observable({
 })
 
 // 切换到上个月
-calenderStore.onPrevMonth = function () {
+calenderStore.onPrevMonth = function (animated) {
+  if (animated && this.onAnimatedPrevMonth) return this.onAnimatedPrevMonth()
   let { year, month } = getPrevMonth(calenderStore.year, calenderStore.month)
   calenderStore.year = year - 0
   calenderStore.month = month - 0
 }
 
+
 // 切换到下个月
-calenderStore.onNextMonth = function () {
+calenderStore.onNextMonth = function (animated) {
+  if (animated && this.onAnimatedNextMonth) return this.onAnimatedNextMonth()
   let { year, month } = getNextMonth(calenderStore.year, calenderStore.month)
   calenderStore.year = year - 0
   calenderStore.month = month - 0
 }
+
+// 这两个方法在渲染日历的时候挂上去的 Day.js
+calenderStore.onAnimatedPrevMonth = null
+calenderStore.onAnimatedNextMonth = null
 
 // 回到今天
 calenderStore.today = function () {

@@ -34,11 +34,25 @@ export default class Month extends Component {
   }
 
   onLeft = () => {
-    calenderStore.onPrevMonth()
+    if (this.animated) {
+      return alert('-_-!不要点那么快会死啊!!')
+    }
+    this.animated = true
+    setTimeout(() => {
+      this.animated = false
+    }, 500)
+    calenderStore.onPrevMonth(true)
   }
 
   onRight = () => {
-    calenderStore.onNextMonth()
+    if (this.animated) {
+      return alert('-_-!不要点那么快会死啊!')
+    }
+    this.animated = true
+    setTimeout(() => {
+      this.animated = false
+    }, 500)
+    calenderStore.onNextMonth(true)
   }
 
   @observer
