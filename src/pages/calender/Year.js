@@ -49,7 +49,7 @@ export default class Year extends Component {
           <Triangle
             size={30}
             color="#cbdae2"
-            borderColor="rgba(0,0,0,0.3)"
+            borderColor="rgba(0,0,0,0)"
           />
         </View>
 

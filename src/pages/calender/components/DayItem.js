@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   text: {
     lineHeight: 50,
     textAlign: 'center',
-    color: '#fff',
+    color: 'rgba(255,255,255,0.8)',
     fontSize: 28,
     fontWeight: '200'
   }

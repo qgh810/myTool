@@ -20,6 +20,18 @@ var {height, width} = Dimensions.get('window')
 
 @observer
 export default class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      // backgroundImage: require('./assets/images/background.jpg') // require('./assets/images/background-base.png')
+      backgroundImage: require('./assets/images/background-blur.png'),
+      // backgroundImage: require('./assets/images/background.jpg'),
+      mask: {
+        backgroundColor: '#000',
+        opacity: 0.3
+      }
+    }
+  }
 
   render() {
     return (
@@ -27,8 +39,9 @@ export default class App extends Component {
         <IosStatusBar/>
         <Image
           style={styles.image}
-          source={require('./assets/images/background-base.png')}
+          source={this.state.backgroundImage}
         >
+          <View style={[styles.mask, this.state.mask]} />
           <Drawer
             type="overlay" // displace overlay static
             tapToClose={true} // 点击边边是否关闭
@@ -57,4 +70,12 @@ const styles = StyleSheet.create({
     width: width,
     height: height,
   },
+
+  mask: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width,
+    height,
+  }
 });

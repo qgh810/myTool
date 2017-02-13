@@ -26,10 +26,10 @@ export default class Index extends Component {
           style={styles.backgroundImage}
           source={require('../../assets/images/background-diary.png')}>
             <View style={styles.mask}/>
-          </Image>
-          <Image
-            style={styles.headerImage}
-            source={require('../../assets/images/header.jpg')}>
+        </Image>
+        <Image
+          style={styles.headerImage}
+          source={require('../../assets/images/header.jpg')}>
         </Image>
       </View>
     );
